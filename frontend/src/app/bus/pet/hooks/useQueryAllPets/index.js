@@ -5,8 +5,6 @@ import { loader } from 'graphql.macro';
 // Queries
 const queryAllPets = loader('./gql/queryAllPets.graphql');
 
-// import * as queryAllPets from './gql/queryAllPets.graphql';
-
 export const useQueryAllPets = () => {
 	const { loading, error, data } = useQuery(queryAllPets);
 
