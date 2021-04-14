@@ -10,6 +10,7 @@
 		"apollo-boost": "0.4.9",
 		"apollo-cache-inmemory": "1.6.6",
 		"apollo-client": "2.6.10",
+		"apollo-link-context": "1.0.20",
 		"apollo-link-http": "1.5.17",
 		"graphql": "15.5.0",
 		"graphql.macro": "1.4.2",
@@ -17,9 +18,6 @@
 		"react-dom": "^17.0.2",
 		"react-scripts": "4.0.3",
 		"web-vitals": "^1.0.1"
-	},
-	"devDependencies": {
-		"apollo": "2.32.5"
 	},
 	"scripts": {
 		"start": "react-scripts start",
@@ -45,5 +43,8 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"devDependencies": {
+		"apollo": "2.32.5"
 	}
 }
