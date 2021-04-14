@@ -6,7 +6,7 @@ import React from 'react';
 import { useQueryAvailablePets } from './hooks/useQueryAvailablePets';
 
 export const Counter = () => {
-	const { loading, error, data } = useQueryAvailablePets();
+	const { loading, error, data /* ,refetch */ } = useQueryAvailablePets();
 
 	if (loading) {
 		return <p>Loading...</p>;
