@@ -6,9 +6,9 @@ import { useSubscription } from '@apollo/react-hooks';
 const subscriptionPetReturned = loader('./gql/subscriptionPetReturned.graphql');
 
 export const usePetReturned = () => {
-  const { loading, error, data } = useSubscription(subscriptionPetReturned);
+    const { loading, error, data } = useSubscription(subscriptionPetReturned);
 
-  const pet = data ? data.petReturned.pet : null;
+    const pet = data ? data.petReturned.pet : null;
 
-  return { loading, error, pet };
+    return { loading, error, pet };
 };
