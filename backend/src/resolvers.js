@@ -13,6 +13,9 @@ export const resolvers = {
         },
         removeBook: (_, { id }) => {
             return removeBook(id);
+        },
+        updateBook: (_, { id, book }) => {
+            return updateBook(id, book);
         }
     }
 };
