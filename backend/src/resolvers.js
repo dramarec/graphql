@@ -4,14 +4,15 @@ export const resolvers = {
     Query: {
         books: () => getBooks(),
         book: (_, { id }) => {
-            const book = getBookById(id);
-            console.log('book', book);
-            return book;
+            return (book = getBookById(id));
         }
     },
     Mutation: {
-        addBook: (_, { title, id, author }) => {
-            return saveBook(title, id, author);
+        addBook: (_, { book }) => {
+            return saveBook(book);
+        },
+        removeBook: (_, { id }) => {
+            return removeBook(id);
         }
     }
 };
