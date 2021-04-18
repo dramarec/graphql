@@ -1,0 +1,61 @@
+query allBooks {
+    books {
+        title
+        author
+        id
+    }
+}
+
+query getBookById {
+    book(id: "ID-2") {
+        title
+        id
+    }
+}
+
+mutation addBook($book: BookInput!) {
+    addBook(book: $book) {
+        title
+        id
+        author
+    }
+}
+# query variables
+{
+  "book": {
+    "title": "$book: BookInput!",
+    "author": "book: $book"
+  }
+}
+
+mutation removeBook{
+  removeBook(id: "3249aa81-f685-4d9e-8eb4-6078229fb551"){
+    id
+    title
+  }
+}
+
+mutation updateBook($id: ID!, $book: UpdateBookInput!){
+  updateBook(id: $id, book: $book){
+    id
+    title
+    author
+  
+  }
+}
+# query variables
+{
+  "id": "ID-1",
+  "book": {
+    "title": "Book",
+    "author": "Newr"
+  }
+}
+
+# mutation {
+#     addBook(title: "New Book", id: "ID-3", author: "Unknown") {
+#         title
+#         id
+#         author
+#     }
+# }
