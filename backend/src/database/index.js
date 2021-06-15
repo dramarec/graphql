@@ -11,8 +11,8 @@ const url = `mongodb+srv://${user}:${userPassword}@${cluster}.mongodb.net`;
 export const connectDatabase = async () => {
     const client = await MongoClient.connect(url, {
         useNewUrlParser: true,
-        poolSize: 5,
-        // useUnifiedTopology: true,
+        // poolSize: 5,
+        useUnifiedTopology: true,
     });
     const db = client.db("main");
 
