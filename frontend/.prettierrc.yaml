@@ -1,6 +1,6 @@
-printWidth: 100
+printWidth: 300
 tabWidth: 4
-useTabs: true
+useTabs: false
 semi: true
 singleQuote: true
 trailingComma: none
