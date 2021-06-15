@@ -24,11 +24,6 @@ export const useCustomerAuth = () => {
         localStorage.setItem('token', token);
     }
 
-    // const logIn = () => {
-    //     _logIn({
-    //         variables: form
-    //     });
-    // };
     const logIn = () => {
         (async () => {
             try {
