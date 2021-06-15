@@ -16,22 +16,22 @@
 // console.log('getBooks', getBooks());
 //===============================
 
-const { v4 } = require('uuid');
+const { v4 } = require("uuid");
 const initialDB = [
     [
-        'ID-1',
+        "ID-1",
         {
-            title: 'Harry Potter',
-            author: 'J.K. Rowling'
-        }
+            title: "Harry Potter",
+            author: "J.K. Rowling",
+        },
     ],
     [
-        'ID-2',
+        "ID-2",
         {
-            title: 'Jurassic Park',
-            author: 'Michael Crichton'
-        }
-    ]
+            title: "Jurassic Park",
+            author: "Michael Crichton",
+        },
+    ],
 ];
 
 const booksDB = new Map(initialDB);
@@ -45,7 +45,7 @@ export const getBooks = () => {
         // console.log('booksDB.forEach ===> value', value);
         const currentBook = {
             id: key,
-            ...value
+            ...value,
         };
 
         books.push(currentBook);
@@ -56,12 +56,12 @@ export const getBooks = () => {
 // console.log('getBooks ===> getBooks()', getBooks());
 
 // ===
-export const getBookById = id => {
+export const getBookById = (id) => {
     const book = booksDB.get(id);
     return { id, ...book };
 };
 
-export const saveBook = book => {
+export const saveBook = (book) => {
     const id = v4();
     booksDB.set(id, book);
     const savedBook = booksDB.get(id);
@@ -69,7 +69,7 @@ export const saveBook = book => {
     return { id, ...savedBook };
 };
 
-export const removeBook = id => {
+export const removeBook = (id) => {
     const expectedBook = booksDB.get(id);
     booksDB.delete(id);
 
@@ -80,7 +80,7 @@ export const updateBook = (id, receivedBook) => {
     const previousBook = booksDB.get(id);
     const expectedBook = {
         ...previousBook,
-        ...receivedBook
+        ...receivedBook,
     };
 
     removeBook(id);
