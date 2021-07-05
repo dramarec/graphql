@@ -1,3 +1,10 @@
+import { gql } from 'apollo-server-express';
+// import { GraphQLDateTime } from 'graphql-iso-date';
+
+export const typeDefs = gql`
+
+scalar ISODate
+
 type Query {
     user: User
 
@@ -10,8 +17,8 @@ type User {
     name: String!
     email: String!
     books: [Book!]
-    createdAt: String!
-    updatedAt: String!
+    createdAt: ISODate!
+    updatedAt: ISODate!
 }
 
 input signupInput {
@@ -53,3 +60,5 @@ input UpdateBookInput {
     title: String
     author: String
 }
+
+`

@@ -5,7 +5,8 @@ import { ApolloServer } from "apollo-server-express";
 import express from "express";
 import mongoose from "mongoose";
 
-import schema from "./graphql/schema.graphql";
+// import schema from "./graphql/schema.graphql";
+import { typeDefs } from './graphql/typeDefs'
 import { resolvers } from "./graphql/resolvers";
 // import { connectDatabase } from "./database";
 
@@ -13,7 +14,8 @@ const startServer = async () => {
     const app = express();
 
     const server = new ApolloServer({
-        typeDefs: schema,
+        // typeDefs: schema,
+        typeDefs,
         resolvers,
     });
 
