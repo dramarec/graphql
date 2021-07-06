@@ -41,14 +41,17 @@ type Mutation {
     login(input: loginInput): Token
 
     addBook(book: BookInput!): Book
-    removeBook(id: ID!): Book
     updateBook(id: ID!, book: UpdateBookInput): Book
+    removeBook(id: ID!): Book
 }
 
 type Book {
-    id: ID!
+    id: ID
     title: String!
     author: String!
+    user: User!
+    createdAt: ISODate!
+    updatedAt: ISODate!
 }
 
 input BookInput {

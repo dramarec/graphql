@@ -9,6 +9,7 @@ import mongoose from "mongoose";
 import { typeDefs } from './graphql/typeDefs'
 import { resolvers } from "./graphql/resolvers";
 // import { connectDatabase } from "./database";
+import { verifyUser } from './helper/context'
 
 const startServer = async () => {
     const app = express();
@@ -17,6 +18,18 @@ const startServer = async () => {
         // typeDefs: schema,
         typeDefs,
         resolvers,
+        context: async ({ req }) => {
+            await verifyUser(req)
+            console.log("🔥🚀 ===> context: ===> req.email", req.email);
+            return {
+                email: req.email
+            }
+        },
+        formatError: (error) => {
+            return {
+                message: error.message
+            };
+        }
     });
 
     server.applyMiddleware({ app });
