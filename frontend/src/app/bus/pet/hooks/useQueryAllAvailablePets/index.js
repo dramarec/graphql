@@ -1,5 +1,5 @@
 // Core
-import { useLazyQuery } from '@apollo/react-hooks';
+import { useLazyQuery } from '@apollo/client';
 
 import { loader } from 'graphql.macro';
 // Queries

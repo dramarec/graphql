@@ -1,12 +1,13 @@
 // Core
 import React from 'react';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from '@apollo/client';
 
 // Components
-// import { Pet } from './bus/pet';
+import { Pet } from './bus/pet';
 // import { Customer } from './bus/customer';
-// import { Login } from './bus/customer/login';
+import { Login } from './bus/customer/login';
 import { User } from './bus/user';
+import './App.css'
 
 // Other
 import { client } from './init/modern';
@@ -14,16 +15,16 @@ import { client } from './init/modern';
 export const App = () => {
     return (
         <ApolloProvider client={client}>
-            {/*<Customer />*/}
-            {/*<Login />*/}
-            {/*<Pet />*/}
+            {/* <Customer /> */}
+            <Login />
+            <Pet />
             <User />
         </ApolloProvider>
     );
 };
 // // Core
 // import React from 'react';
-// import { ApolloProvider } from '@apollo/react-hooks';
+// import { ApolloProvider } from '@apollo/client';
 
 // // Components
 // // import { Customer } from './bus/customer/auth';

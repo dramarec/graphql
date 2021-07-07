@@ -1,5 +1,5 @@
 // Core
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/client';
 import { loader } from 'graphql.macro';
 
 // Hooks

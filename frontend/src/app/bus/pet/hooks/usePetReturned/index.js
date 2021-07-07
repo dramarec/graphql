@@ -1,6 +1,6 @@
 // Core
 import { loader } from 'graphql.macro';
-import { useSubscription } from '@apollo/react-hooks';
+import { useSubscription } from '@apollo/client';
 
 // Subscriptions
 const subscriptionPetReturned = loader('./gql/subscriptionPetReturned.graphql');
