@@ -25,6 +25,9 @@
         "subscriptions-transport-ws": "0.9.18",
         "web-vitals": "^1.0.1"
     },
+    "devDependencies": {
+        "apollo": "2.32.5"
+    },
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
@@ -49,8 +52,5 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    },
-    "devDependencies": {
-        "apollo": "2.32.5"
     }
 }

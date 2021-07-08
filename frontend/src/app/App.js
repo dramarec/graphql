@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AppBar from './AppBar';
 
-import { Customer } from './bus/customer/auth';
-import { Login } from './bus/customer/login';
 import { Pet } from './bus/pet';
+import { Login } from './bus/customer/useCustomerLogin/login';
+import { Customer } from './bus/customer/useCustomerAuth/auth';
 
 
 export const App = () => {

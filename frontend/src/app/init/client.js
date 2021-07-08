@@ -1,34 +1,20 @@
-// Core
 import {
     ApolloClient,
-    InMemoryCache
-    // createHttpLink,
+    InMemoryCache,
+    createHttpLink,
 } from '@apollo/client';
 // import { setContext } from 'apollo-link-context';
 // import { split } from 'apollo-link';
 // import { WebSocketLink } from 'apollo-link-ws';
 // import { getMainDefinition } from 'apollo-utilities';
 
-const uri = 'https://funded-pet-library.moonhighway.com/';
-const cache = new InMemoryCache();
 
-export const client = new ApolloClient({
-    uri,
-    cache
-});
+const root = 'funded-pet-library.moonhighway.com/';
 
-
-
-
-
-
-
-/////////////////////
-// const root = 'funded-pet-library.moonhighway.com/';
-// //! Create an http link: GraphQL Server
-// const httpLink = createHttpLink({
-//     uri: `https://${root}`
-// });
+//! Create an http link: GraphQL Server
+const link = createHttpLink({
+    uri: `https://${root}`
+}); 
 
 // // Auth
 // const authLink = setContext((_, { headers }) => {
@@ -61,9 +47,26 @@ export const client = new ApolloClient({
 // );
 
 // // Cache initialization
+const cache = new InMemoryCache();
+
+export const client = new ApolloClient({
+    cache,
+    link
+});
+
+
+//////////////////////////////////////////////////////////
+
+// Core 1-2 
+// import {
+//     ApolloClient,
+//     InMemoryCache,
+// } from '@apollo/client';
+
+// const uri = 'https://funded-pet-library.moonhighway.com/';
 // const cache = new InMemoryCache();
 
 // export const client = new ApolloClient({
-//     cache,
-//     link
+//     uri,
+//     cache
 // });

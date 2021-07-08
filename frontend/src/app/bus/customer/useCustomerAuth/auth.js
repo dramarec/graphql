@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useCustomerCreator } from './hooks/useCustomerAuth';
+import { useCustomerCreator } from './index';
 
 export const Customer = () => {
     const { handleChange, save, createdAccount, loading, error } = useCustomerCreator();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCustomerAuth } from './hooks/useCustomerLogin';
+import { useCustomerAuth } from './index';
 
 export const Login = () => {
     const { handleChange, logIn, authorizedCustomer, error, errors, loading } = useCustomerAuth();
@@ -17,7 +17,7 @@ export const Login = () => {
     if (error) {
         return <p>We have a problem: {error.message}</p>;
     }
-    
+
     const errorsJSX = errors && <p>We have a problem: {errors.message}</p>;
 
     return (
