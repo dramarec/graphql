@@ -1,6 +1,4 @@
 import React from 'react';
-
-// Hooks
 import { useCustomerAuth } from './hooks/useCustomerLogin';
 
 export const Login = () => {
@@ -11,12 +9,15 @@ export const Login = () => {
             <p>Authorized Customer: {authorizedCustomer.customer.name}</p>
         </>
     );
+
     if (loading) {
         return <p>Loading...</p>;
     }
+
     if (error) {
         return <p>We have a problem: {error.message}</p>;
     }
+    
     const errorsJSX = errors && <p>We have a problem: {errors.message}</p>;
 
     return (

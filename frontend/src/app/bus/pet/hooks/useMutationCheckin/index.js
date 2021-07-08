@@ -1,9 +1,7 @@
-// Core
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { loader } from 'graphql.macro';
 
-// Mutations
 const mutationCheckIn = loader('./gql/mutationCheckIn.graphql');
 
 export const useCheckin = () => {

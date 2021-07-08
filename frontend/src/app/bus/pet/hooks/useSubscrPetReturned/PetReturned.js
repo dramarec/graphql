@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Hooks
-import { usePetReturned } from './hooks/usePetReturned';
+import { usePetReturned } from './index';
 
 export const PetReturned = () => {
     const { pet, errors } = usePetReturned();

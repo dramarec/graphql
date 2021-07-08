@@ -1,9 +1,8 @@
-/* eslint-disable no-lone-blocks */
 // Core
 import React from 'react';
 
 // Hooks
-import { useQueryAvailablePets } from './hooks/useQueryAvailablePets';
+import { useQueryAvailablePets } from './index';
 
 export const Counter = () => {
 	const { loading, error, data /* ,refetch */ } = useQueryAvailablePets();

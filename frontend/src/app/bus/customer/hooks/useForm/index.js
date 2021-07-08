@@ -3,11 +3,12 @@ import { useState } from 'react';
 export const useForm = initialValues => {
 	const [form, setForm] = useState(initialValues);
 
-	const handleChange = event => {
-		// event.persist();
+	const handleChange = e => {
+		e.persist();
+		// e.preventDefault();
 		setForm(prevValues => ({
 			...prevValues,
-			[event.target.name]: event.target.value
+			[e.target.name]: e.target.value
 		}));
 	};
 

@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Hooks
-import { useQueryAllAvailablePets } from './hooks/useQueryAllAvailablePets';
+import { useQueryAllAvailablePets } from './index';
 
 export const SpecialList = () => {
     const { getAllAvailablePets, loading, error, pets } = useQueryAllAvailablePets();
@@ -17,19 +17,22 @@ export const SpecialList = () => {
         </p>
     );
 
+
     const petsJSX = pets && pets.map(({ id, name, weight }) => (
-        <p key={id}>
-            <span>Name: {name}</span>
-            <span>Weight: {weight}</span>
-        </p>
+        <li key={id}>
+            <p>Name: {name}</p>
+            <p>Weight: {weight}</p>
+        </li>
     ));
 
     return (
-        <>
+        <div>
             <button onClick={getAllAvailablePets}>Download</button>
             {loaderJSX}
             {errorJSX}
-            {petsJSX}
-        </>
+            <ul>
+                {petsJSX}
+            </ul>
+        </div>
     )
 };

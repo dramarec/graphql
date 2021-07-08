@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Hooks
-import { useCheckin } from './hooks/useCheckin';
+import { useCheckin } from './index'
 
 export const CheckinPet = () => {
     const { checkIn, pet, errors, error } = useCheckin();

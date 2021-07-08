@@ -1,12 +1,9 @@
-// Core
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { loader } from 'graphql.macro';
 
-// Hooks
 import { useForm } from '../useForm';
 
-// Mutations
 const mutationLogIn = loader('./gql/mutationLogIn.graphql');
 
 export const useCustomerAuth = () => {

@@ -5,13 +5,17 @@ import { useCustomerCreator } from './hooks/useCustomerAuth';
 export const Customer = () => {
     const { handleChange, save, createdAccount, loading, error } = useCustomerCreator();
 
-    const customerJSX = createdAccount && <p>We already created customer with name: {createdAccount.name}</p>;
+    const customerJSX = createdAccount &&
+        <p>We already created customer with name: {createdAccount.name}</p>;
+
     if (loading) {
         return <p>Loading...</p>;
     }
+
     if (error) {
         return <p>We have a problem: {error.message}</p>;
     }
+    
     // const errorJSX = error && <p>{error}</p>;
 
     return (

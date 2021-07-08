@@ -1,12 +1,9 @@
-// Core
 import React from 'react';
-
-// Hooks
-import { useQueryProfile } from './hooks/useQueryProfile';
+import { useQueryProfile } from './index';
 
 export const Profile = () => {
 	const { getProfile, loading, error, profile } = useQueryProfile();
-	// console.log(profile);
+	console.log('profile', profile);
 
 	const loadProfile = () => {
 		getProfile({
@@ -25,10 +22,11 @@ export const Profile = () => {
 	}
 
 	return (
-		<>
+		<div>
 			<h1>Profile:</h1>
 			<button onClick={loadProfile}>Download Profile</button>
-			<p>{profile && profile.name}</p>
-		</>
+			{/* <p>{profile && profile.name}</p> */}
+			<p>{profile?.name}</p>
+		</div>
 	);
 };

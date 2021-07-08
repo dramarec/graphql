@@ -1,8 +1,6 @@
-// Core
 import { useLazyQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 
-// Queries
 const queryPetById = loader('./gql/queryPetById.graphql');
 
 export const useQueryProfile = () => {
