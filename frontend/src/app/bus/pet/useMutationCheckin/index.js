@@ -5,9 +5,11 @@ import { loader } from 'graphql.macro';
 const mutationCheckIn = loader('./gql/mutationCheckIn.graphql');
 
 export const useCheckin = () => {
-    const [_checkIn, { data, errors }] = useMutation(mutationCheckIn);
-    const [error, setError] = useState(false);
-    // console.log('useCheckin ===> error', error);
+    const [_checkIn, { data, error, loading }] = useMutation(mutationCheckIn);
+    const [errors, setErrors] = useState(false);
+
+    // console.log("🔥🚀 ===> useCheckin ===> errorApollo", error);
+    // console.log('useCheckin ===> errors', errors);
 
     const checkIn = id => {
         (async () => {
@@ -17,8 +19,8 @@ export const useCheckin = () => {
                         id
                     }
                 });
-            } catch (error) {
-                setError(error.message);
+            } catch (errors) {
+                setErrors(errors.message);
             }
         })();
     };
@@ -29,6 +31,39 @@ export const useCheckin = () => {
         checkIn,
         pet,
         errors,
-        error
+        error,
+        loading
     };
 };
+
+// export const useCheckin = () => {
+//     const [_checkIn, response] = useMutation(mutationCheckIn);
+//     console.log("🔥🚀 ===> useCheckin ===> response", response);
+//     console.log("🔥🚀 ===> useCheckin ===> errorApollo", response.error);
+//     // const [_checkIn, { data, error }] = useMutation(mutationCheckIn);
+
+//     const [errors, setErrors] = useState(false);
+//     console.log('useCheckin ===> errors', errors);
+
+//     const checkIn = id => {
+//         (async () => {
+//             try {
+//                 await _checkIn({
+//                     variables: {
+//                         id
+//                     }
+//                 });
+//             } catch (errors) {
+//                 setErrors(errors.message);
+//             }
+//         })();
+//     };
+
+//     const pet = response.data && response.data.checkIn.pet;
+
+//     return {
+//         checkIn,
+//         pet,
+//         errors,
+//     };
+// };

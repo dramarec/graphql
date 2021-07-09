@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { loader } from 'graphql.macro';
-
 import { useForm } from '../useForm';
 
 const mutationLogIn = loader('./gql/mutationLogIn.graphql');
 
 export const useCustomerAuth = () => {
-    const [_logIn, { data, errors }] = useMutation(mutationLogIn);
-    const [error, setError] = useState(false);
-    const { form, handleChange } = useForm({
-        username: '',
-        password: ''
-    });
+    const [signIn, { data, error }] = useMutation(mutationLogIn);
+    // console.log("🔥🚀 ===> useMutation ===> error", error);
+
+    const [errors, setErrors] = useState(false);
+    // console.log("🔥🚀 ===> setErrors ===> errors", errors);
+
+    const { form, handleChange } = useForm({ username: '', password: '' });
 
     const authorizedCustomer = data && data.logIn;
     const token = authorizedCustomer && authorizedCustomer.token;
@@ -22,13 +22,17 @@ export const useCustomerAuth = () => {
     }
 
     const logIn = () => {
+        // signIn({
+        //     variables: form
+        // });
+
         (async () => {
             try {
-                await _logIn({
+                await signIn({
                     variables: form
                 });
-            } catch (error) {
-                setError(error.message);
+            } catch (errors) {
+                setErrors(errors.message);
             }
         })();
     };
@@ -37,7 +41,8 @@ export const useCustomerAuth = () => {
         logIn,
         handleChange,
         authorizedCustomer,
-        errors,
-        error
+        error,
+        errors
     };
 };
+

@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AppBar from './AppBar';
 
 import { Pet } from './bus/pet';
-import { Login } from './bus/customer/useCustomerLogin/login';
-import { Customer } from './bus/customer/useCustomerAuth/auth';
+import { Login } from './bus/customer/useCustomerLogin/Login';
+import { Customer } from './bus/customer/useCustomerAuth/Customer';
 
 
 export const App = () => {

@@ -5,15 +5,14 @@ import { useForm } from '../useForm';
 const mutationCreateAccount = loader('./gql/mutationCreateAccount.graphql');
 
 export const useCustomerCreator = () => {
-    const [_save, { data, error }] = useMutation(mutationCreateAccount);
-    // console.log('useCustomerCreator ===> error', error);
+    const [addUser, { data, error }] = useMutation(mutationCreateAccount);
 
     const { form, handleChange } = useForm({ name: '', username: '', password: '' });
 
     const save = () => {
         (async () => {
             try {
-                await _save({
+                await addUser({
                     variables: {
                         account: form
                     }

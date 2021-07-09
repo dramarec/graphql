@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// custom hooks
+
 export const useForm = initialValues => {
 	const [form, setForm] = useState(initialValues);
 
