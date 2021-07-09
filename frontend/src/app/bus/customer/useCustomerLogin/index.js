@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { loader } from 'graphql.macro';
-import { useForm } from '../useForm';
+import { useForm } from '../../../hooks/useForm';
 
 const mutationLogIn = loader('./gql/mutationLogIn.graphql');
 

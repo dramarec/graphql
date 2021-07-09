@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { loader } from 'graphql.macro';
 
 // Hooks
-import { useForm } from '../../../../hooks/useForm';
+import { useForm } from '../../../hooks/useForm';
 
 // Mutations
 const mutationLogIn = loader('./gql/mutationLogIn.graphql');

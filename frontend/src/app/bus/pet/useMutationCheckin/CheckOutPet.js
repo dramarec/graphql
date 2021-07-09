@@ -1,8 +1,8 @@
 import React from 'react';
-import { useCheckin } from './useCheckin'
+import { useCheckOut } from './useCheckOut'
 
-export const CheckinPet = () => {
-    const { checkIn, pet, errors, error, loading } = useCheckin();
+export const CheckOutPet = () => {
+    const { checkOut, pet, errors, error, loading } = useCheckOut();
 
     if (loading) return 'Loading...';
 
@@ -20,12 +20,12 @@ export const CheckinPet = () => {
     );
 
     return (
-        <div >
-            <h1>Checkin</h1>
+        <div>
+            <h1>CheckOutPet</h1>
+            <button onClick={() => checkOut("C-7")}>CheckOut</button>
             {petJSX}
             {errorJSX}
             {errorsJSX}
-            <button onClick={() => checkIn("C-7")}>CheckIn</button>
         </div>
     );
 };

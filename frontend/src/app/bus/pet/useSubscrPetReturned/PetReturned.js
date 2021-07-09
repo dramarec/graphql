@@ -1,8 +1,5 @@
-// Core
 import React from 'react';
-
-// Hooks
-import { usePetReturned } from './index';
+import { usePetReturned } from './hook';
 
 export const PetReturned = () => {
     const { pet, errors } = usePetReturned();

@@ -8,7 +8,7 @@ const AppBar = () => {
             <nav>
                 <ul style={{ display: 'flex', justifyContent: 'space-around', width: 400 }}>
                     <li>
-                        <NavLink to="/">Home</NavLink>
+                        <NavLink to="/">Pet</NavLink>
                     </li>
                     <li>
                         <NavLink to="/login">Login</NavLink>

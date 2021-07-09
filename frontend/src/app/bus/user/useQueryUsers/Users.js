@@ -1,8 +1,5 @@
-// Core
 import React from 'react';
-
-// Hooks
-import { useQueryUsers } from './hooks/useQueryUsers';
+import { useQueryUsers } from './hook';
 
 export const Users = () => {
     const { getUsers, loading, error, users } = useQueryUsers();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQueryProfile } from './index';
+import { useQueryProfile } from './hook';
 
 export const Profile = () => {
 	const { getProfile, loading, error, profile } = useQueryProfile();

@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Hooks
-import { useQueryAllAvailablePets } from './index';
+import { useQueryAllAvailablePets } from './hook';
 
 export const SpecialList = () => {
     const { getAllAvailablePets, loading, error, pets } = useQueryAllAvailablePets();

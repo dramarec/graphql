@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Hooks
-import { useUserLogin } from './hooks/useUserLogin';
+import { useUserLogin } from './hook';
 
 export const Login = () => {
     const { handleChange, logIn, authorizedUser } = useUserLogin();

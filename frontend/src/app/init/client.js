@@ -38,6 +38,13 @@ const authLink = setContext((_, { headers }) => {
 
 const wrappedHttpLink = authLink.concat(httpLink);
 
+// The split function takes three parameters:
+//
+// * A function that's called for each operation to execute
+// * The Link to use for an operation if the function returns a "truthy" value
+// * The Link to use for an operation if the function returns a "falsy" value
+// https://www.apollographql.com/docs/react/data/subscriptions/#gatsby-focus-wrapper
+
 const splitLink = split(
     ({ query }) => {
         const definition = getMainDefinition(query);

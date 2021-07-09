@@ -2,9 +2,9 @@
 import React from 'react';
 
 // Components
-import { Registration } from './registration';
-import { Users } from './users';
-import { Login } from './login';
+import { Registration } from './useUserCreator/Registration';
+import { Users } from './useQueryUsers/Users';
+import { Login } from './useUserLogin/Login';
 
 export const User = () => {
     return (

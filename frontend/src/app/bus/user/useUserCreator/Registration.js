@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Hooks
-import { useUserCreator } from './hooks/useUserCreator';
+import { useUserCreator } from './hook';
 
 export const Registration = () => {
     const { handleChange, save, createdUser } = useUserCreator();
