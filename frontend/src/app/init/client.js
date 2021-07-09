@@ -1,58 +1,66 @@
 import {
-    ApolloClient,
-    InMemoryCache,
-    createHttpLink,
-} from '@apollo/client';
-// import { setContext } from 'apollo-link-context';
-// import { split } from 'apollo-link';
-// import { WebSocketLink } from 'apollo-link-ws';
-// import { getMainDefinition } from 'apollo-utilities';
-
+    ApolloClient, //  apollo-client
+    InMemoryCache, // apollo-cache-inmemory
+    HttpLink, //!deprecated createHttpLink 'apollo-link-http'
+    split, // apollo-link
+} from '@apollo/client'; // apollo-boost
+import {
+    setContext
+} from "@apollo/client/link/context"; // 'apollo-link-context';
+import { WebSocketLink } from '@apollo/client/link/ws'; // apollo-link-ws
+import { getMainDefinition } from '@apollo/client/utilities'; // apollo-utilities
 
 const root = 'funded-pet-library.moonhighway.com/';
 
-//! Create an http link: GraphQL Server
-const link = createHttpLink({
+const httpLink = new HttpLink({
+    // uri: `https://${root}/graphql`
     uri: `https://${root}`
-}); 
+});
 
-// // Auth
-// const authLink = setContext((_, { headers }) => {
-//     const token = localStorage.getItem('token');
-//     return {
-//         headers: {
-//             ...headers,
-//             authorization: token ? `Bearer ${token}` : ''
-//         }
-//     };
-// });
+//! Create a WebSocket link:
+const wsLink = new WebSocketLink({
+    // uri: `wss://${root}subscriptions`,
+    uri: `wss://${root}graphql`,
+    options: {
+        reconnect: true
+    }
+});
 
-// const wrappedHttpLink = authLink.concat(httpLink);
+const authLink = setContext((_, { headers }) => {
+    const token = localStorage.getItem('token');
+    return {
+        headers: {
+            ...headers,
+            authorization: token ? `Bearer ${token}` : ''
+        }
+    };
+});
 
-// //! Create a WebSocket link:
-// const wsLink = new WebSocketLink({
-//     uri: `wss://${root}graphql`,
-//     options: {
-//         reconnect: true
-//     }
-// });
+const wrappedHttpLink = authLink.concat(httpLink);
 
-// const link = split(
-//     ({ query }) => {
-//         const definition = getMainDefinition(query);
-//         return definition.kind === 'OperationDefinition' && definition.operation === 'subscription';
-//     },
-//     wsLink,
-//     wrappedHttpLink
-// );
+const splitLink = split(
+    ({ query }) => {
+        const definition = getMainDefinition(query);
+        return (
+            definition.kind === 'OperationDefinition' &&
+            definition.operation === 'subscription'
+        );
+    },
+    wsLink,
+    wrappedHttpLink
+);
 
-// // Cache initialization
-const cache = new InMemoryCache();
 
 export const client = new ApolloClient({
-    cache,
-    link
+    link: splitLink,
+    cache: new InMemoryCache()
 });
+
+
+//////////////////////////////////////////////////////////
+
+
+
 
 
 //////////////////////////////////////////////////////////

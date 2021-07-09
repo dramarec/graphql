@@ -1,7 +1,9 @@
 import React from 'react';
-import { useCheckin } from './index'
+import { useCheckin } from './useCheckin'
+// import { useCheckOut } from './useCheckOut'
 
 export const CheckinPet = () => {
+    // const { checkOut, pet, errors, error, loading } = useCheckOut();
     const { checkIn, pet, errors, error, loading } = useCheckin();
 
     if (loading) return 'Loading...';
@@ -10,7 +12,7 @@ export const CheckinPet = () => {
     const errorsJSX = error && <h1>We have another Apollo problem: {error.message}</h1>;
 
     if (error) return `Error Apollo! ${error.message}`;
-    // if (errors) return `Error! ${errors}`;
+    if (errors) return `Error! ${errors}`;
 
     const petJSX = pet && (
         <div>
@@ -20,12 +22,13 @@ export const CheckinPet = () => {
     );
 
     return (
-        <>
+        <div>
             <h1>Checkin</h1>
-            <button onClick={() => checkIn('C-1')}>CheckIn</button>
+            {/* <button onClick={() => checkOut("C-7")}>CheckOut</button> */}
+            <button onClick={() => checkIn("C-7")}>CheckIn</button>
             {petJSX}
             {errorJSX}
             {errorsJSX}
-        </>
+        </div>
     );
 };

@@ -16,6 +16,9 @@ const AppBar = () => {
                     <li>
                         <NavLink to="/customer">Registration</NavLink>
                     </li>
+                    <li>
+                        <NavLink to="/user">User</NavLink>
+                    </li>
                 </ul>
             </nav>
 
