@@ -1,25 +1,26 @@
-// Core
 import React from 'react';
 
 // Components
-// import { Counter } from './counter';
-// import { List } from './list';
-// import { SpecialList } from './specialList';
-// import { Profile } from './profile';
-import { CheckinPet } from './checkinPet';
-import { PetReturned } from './petReturned';
+import { CheckinPet } from './useMutationCheckin/CheckinPet';
+import { CheckOutPet } from './useMutationCheckin/CheckOutPet';
+import { Profile } from './useQueryProfile/Profile';
+import { SpecialList } from './useQueryAllAvailablePets/SpecialList';
+import { List } from './useQueryAllPets/List';
+import { Counter } from './useQueryAvailablePets/Counter';
+import { PetReturned } from './useSubscrPetReturned/PetReturned';
 
 export const Pet = () => {
     return (
-        <>
-            <h1>Pet</h1>
-            <CheckinPet />
-            <PetReturned />
-
-            {/* <Profile /> */}
-            {/* <Counter /> */}
-            {/* <List /> */}
-            {/* <SpecialList /> */}
-        </>
+        <div style={{ padding: 20, }}>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <PetReturned />
+                <CheckinPet />
+                <CheckOutPet />
+            </div>
+            <Profile />
+            <SpecialList />
+            <List />
+            <Counter />
+        </div>
     );
 };

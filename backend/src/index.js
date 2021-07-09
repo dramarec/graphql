@@ -5,16 +5,31 @@ import { ApolloServer } from "apollo-server-express";
 import express from "express";
 import mongoose from "mongoose";
 
-import schema from "./graphql/schema.graphql";
+// import schema from "./graphql/schema.graphql";
+import { typeDefs } from './graphql/typeDefs'
 import { resolvers } from "./graphql/resolvers";
 // import { connectDatabase } from "./database";
+import { verifyUser } from './helper/context'
 
 const startServer = async () => {
     const app = express();
 
     const server = new ApolloServer({
-        typeDefs: schema,
+        // typeDefs: schema,
+        typeDefs,
         resolvers,
+        context: async ({ req }) => {
+            await verifyUser(req)
+            console.log("🔥🚀 ===> context: ===> req.email", req.email);
+            return {
+                email: req.email
+            }
+        },
+        formatError: (error) => {
+            return {
+                message: error.message
+            };
+        }
     });
 
     server.applyMiddleware({ app });
