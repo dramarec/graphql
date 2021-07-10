@@ -52,7 +52,7 @@ export const resolvers = {
                     throw new Error('Incorrect Password');
                 }
                 const secret = process.env.JWT_SECRET_KEY || 'mysecretkey';
-                const token = jwt.sign({ email: user.email }, secret, { expiresIn: '1d' });
+                const token = jwt.sign({ email: user.email }, secret, { expiresIn: '30d' });
 
                 return { token };
 
