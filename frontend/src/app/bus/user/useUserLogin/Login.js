@@ -15,7 +15,7 @@ export const Login = () => {
     return (
         <>
             <h1>Login</h1>
-            <input type="text" placeholder="name" name="name" onChange={handleChange} />
+            <input type="email" placeholder="email" name="email" onChange={handleChange} />
             <input type="password" placeholder="password" name="password" onChange={handleChange} />
             <button type="submit" onClick={logIn}>
                 Login

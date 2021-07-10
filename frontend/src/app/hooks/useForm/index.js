@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 export const useForm = initialValues => {
     const [form, setForm] = useState(initialValues);
+    console.log("🔥🚀 ===> form", form);
 
     const handleChange = event => {
         event.persist();

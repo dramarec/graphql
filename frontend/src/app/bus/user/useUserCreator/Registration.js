@@ -1,13 +1,16 @@
-// Core
 import React from 'react';
-
-// Hooks
 import { useUserCreator } from './hook';
 
 export const Registration = () => {
-    const { handleChange, save, createdUser } = useUserCreator();
+    const { handleChange, save, createdUser, error, errors, load } = useUserCreator();
+
+    if (load) return 'LPADINGGG........'
+    if (error) return `Apollo Registration error: ${error.message}`
+
+
 
     const userJSX = createdUser && <p>We already created customer with name: {createdUser.name}</p>;
+    const errorsJSX = errors && <p>We have already CATH ERROR: {errors}</p>;
 
     return (
         <>
@@ -19,6 +22,7 @@ export const Registration = () => {
                 Save
             </button>
             {userJSX}
+            {errorsJSX}
         </>
     );
 };
