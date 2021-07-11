@@ -44,17 +44,24 @@ export const resolvers = {
         login: async (_, { input }) => {
             try {
                 const user = await User.findOne({ email: input.email });
+                console.log("🔥🚀 ===> login: ===> user", user);
+
                 if (!user) {
                     throw new Error('User not found');
                 }
                 const isPasswordValid = await bcrypt.compare(input.password, user.password);
+
                 if (!isPasswordValid) {
                     throw new Error('Incorrect Password');
                 }
+                
                 const secret = process.env.JWT_SECRET_KEY || 'mysecretkey';
                 const token = jwt.sign({ email: user.email }, secret, { expiresIn: '30d' });
 
-                return { token };
+                return {
+                    token,
+                    user
+                };
 
             } catch (error) {
                 console.log(error)

@@ -13,7 +13,7 @@ export const Registration = () => {
     const errorsJSX = errors && <p>We have already CATH ERROR: {errors}</p>;
 
     return (
-        <>
+        <div>
             <h1>Registration</h1>
             <input type="text" placeholder="name" name="name" onChange={handleChange} />
             <input type="text" placeholder="email" name="email" onChange={handleChange} />
@@ -23,6 +23,6 @@ export const Registration = () => {
             </button>
             {userJSX}
             {errorsJSX}
-        </>
+        </div>
     );
 };
