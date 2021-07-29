@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 // const { Schema } = mongoose;
 
-const contactSchema = new mongoose.Schema({
+const bookSchema = new mongoose.Schema({
     title: {
         type: String,
     },
@@ -18,4 +18,4 @@ const contactSchema = new mongoose.Schema({
 }
 );
 
-export const Book = mongoose.model("Book", contactSchema);
+export const Book = mongoose.model("Book", bookSchema);

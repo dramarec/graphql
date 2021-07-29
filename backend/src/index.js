@@ -8,7 +8,6 @@ import mongoose from "mongoose";
 // import schema from "./graphql/schema.graphql";
 import { typeDefs } from './graphql/typeDefs'
 import { resolvers } from "./graphql/resolvers";
-// import { connectDatabase } from "./database";
 import { verifyUser } from './helper/context'
 
 const startServer = async () => {
@@ -19,8 +18,10 @@ const startServer = async () => {
         typeDefs,
         resolvers,
         context: async ({ req }) => {
-            await verifyUser(req)
-            console.log("🔥🚀 ===> context: ===> req.email", req.email);
+            if (req) {
+                await verifyUser(req)
+            }
+            // console.log("🔥🚀 ===> context: ===> req.email", req.email);
             return {
                 email: req.email
             }
@@ -34,7 +35,7 @@ const startServer = async () => {
 
     server.applyMiddleware({ app });
 
-    const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT || 4000;
 
     try {
         await mongoose.connect(process.env.DB_HOST, {

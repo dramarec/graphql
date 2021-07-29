@@ -32,13 +32,19 @@ input loginInput {
     password: String!
 }
 
-type Token {
+# type Token {
+#     token: String!
+# }
+
+type AuthUser {
+    user: User!
     token: String!
 }
 
 type Mutation {
-    signup(input: signupInput): User
-    login(input: loginInput): Token
+    signup(input: signupInput!): AuthUser
+    login(input: loginInput!): AuthUser
+    # login(input: loginInput!): Token
 
     addBook(book: BookInput!): Book
     updateBook(id: ID!, book: UpdateBookInput): Book
