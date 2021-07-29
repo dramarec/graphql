@@ -6,6 +6,7 @@ import { Pet } from './bus/pet';
 import { Login } from './bus/customer/useCustomerLogin/Login';
 import { Customer } from './bus/customer/useCustomerAuth/Customer';
 import { User } from './bus/user';
+import { Books } from './bus';
 
 
 export const App = () => {
@@ -17,6 +18,7 @@ export const App = () => {
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/customer" component={Customer} />
                 <Route exact path="/user" component={User} />
+                <Route exact path="/books" component={Books} />
             </Switch>
         </Router>
     );

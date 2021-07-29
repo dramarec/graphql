@@ -7,6 +7,7 @@ const mutationCreateUser = loader('./gql/mutationCreateUser.graphql');
 
 export const useUserCreator = () => {
     const [createUser, { data, error, load }] = useMutation(mutationCreateUser);
+    console.log("🔥🚀 ===> useUserCreator ===> createUser", createUser);
 
     const [errors, setErrors] = useState(false);
 
